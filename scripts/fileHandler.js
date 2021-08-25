@@ -22,11 +22,11 @@ const readFile = (file) => {
 
 /* DOWNLOAD FUNCTIONS */
 export const handleDownloadEvent = () => {
-    const data = getFileData()
+    const data = getInputData()
     downloadFile(data)
 }
 
-export const getFileData = () => {
+export const getInputData = () => {
     const codedTable = encodeTransitionTable()
 
     const TMObject = {

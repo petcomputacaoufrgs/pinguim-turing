@@ -1,5 +1,5 @@
 import {inputMessages, transtionTableMessages, warningAndSuccessMessages, otherConstants} from './constants.js'
-import { handleUploadEvent, handleDownloadEvent, getFileData } from './fileHandler.js'
+import { handleUploadEvent, handleDownloadEvent, getInputData } from './fileHandler.js'
 
 const statesInput = document.getElementById("states")
 const initialStateInput = document.getElementById("initial_state")
@@ -93,7 +93,7 @@ const treatInputs = () => {
 /* Execute Code Button */
 const executeCodeButton = document.getElementById('execute_code')
 executeCodeButton.addEventListener('click', event => {
-    const inputObjects = getFileData()
+    const inputObjects = getInputData()
     window.localStorage.setItem('inputsObject', inputObjects)
 })
 
@@ -344,4 +344,5 @@ const createTransitionTable = () => {
 if(localStorage.getItem('load-machine') && localStorage.getItem('load-machine') === 'true') {
     const funciona = JSON.parse(window.localStorage.getItem('inputsObject'))
     setInputs(funciona)
+    window.localStorage.setItem('load-machine', 'false')
 } 

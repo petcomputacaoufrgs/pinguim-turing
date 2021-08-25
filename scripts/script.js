@@ -1,3 +1,5 @@
+import { getInputData } from './fileHandler.js'
+
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 function switchTheme(e) {
     if (e.target.checked) {
@@ -17,3 +19,10 @@ if (currentTheme) {
         toggleSwitch.checked = true;
     }
 }
+
+window.addEventListener('beforeunload', function (e) {
+    const inputObjects = getInputData()
+    window.localStorage.setItem('inputsObject', inputObjects)
+    
+    e.returnValue = '';
+});
