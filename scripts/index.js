@@ -95,7 +95,6 @@ const executeCodeButton = document.getElementById('execute_code')
 executeCodeButton.addEventListener('click', event => {
     const inputObjects = getFileData()
     window.localStorage.setItem('inputsObject', inputObjects)
-    console.log(window.localStorage.getItem('inputsObject'))
 })
 
 /* Verify Code Button */
