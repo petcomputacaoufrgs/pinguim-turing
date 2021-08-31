@@ -1,4 +1,8 @@
 /* UPLOAD FUNCTIONS */
+/**
+ * @description upload file
+ * @param {} fileObject file object
+ */
 export const handleUploadEvent = (fileObject) => {
     const fileDisplay = document.getElementById('file-chosen')
     if(!fileObject) {
@@ -9,6 +13,10 @@ export const handleUploadEvent = (fileObject) => {
     readFile(fileObject)
 }
 
+/**
+ * @description read a given file and save on the Local Storage
+ * @param {} file file to be read
+ */
 const readFile = (file) => {
     if (!file) {
         return
@@ -21,11 +29,18 @@ const readFile = (file) => {
 }
 
 /* DOWNLOAD FUNCTIONS */
+/**
+ * @description get the info to be downloaded and call download function
+ */
 export const handleDownloadEvent = () => {
     const data = getInputData()
     downloadFile(data)
 }
 
+/**
+ * @description get all the inputs and convert to an JSON string
+ * @returns {string} all the inputs converted to a JSON string
+ */
 export const getInputData = () => {
     const codedTable = encodeTransitionTable()
 
@@ -42,12 +57,16 @@ export const getInputData = () => {
     return JSON.stringify(TMObject)
 }
 
+/**
+ * @description download a .txt file
+ * @param {string} data string to be saved
+ */
 const downloadFile = (data) => {
-    var blob = new Blob([data], {type: 'text/csv'});
+    let blob = new Blob([data], {type: 'text/csv'});
     if(window.navigator.msSaveOrOpenBlob) {
         window.navigator.msSaveBlob(blob, 'maqnorma.txt');
     } else{
-        var elem = window.document.createElement('a');
+        let elem = window.document.createElement('a');
         elem.href = window.URL.createObjectURL(blob);
         elem.download = 'maqnorma.txt';        
         document.body.appendChild(elem);
@@ -56,6 +75,10 @@ const downloadFile = (data) => {
     }
 }
 
+/**
+ * @description transform all the input inside the table in a matrix
+ * @returns {string[][]} table's input in matrix format
+ */
 const encodeTransitionTable = () => {
     const inputTable = document.getElementById('transition_table')
     const codedTable = []
