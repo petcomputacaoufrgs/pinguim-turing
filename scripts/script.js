@@ -26,3 +26,5 @@ window.addEventListener('beforeunload', function (e) {
     
     e.returnValue = '';
 });
+
+// TO DO: carregar os dados quando o usuário reabrir a página

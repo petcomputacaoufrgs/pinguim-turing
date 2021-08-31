@@ -91,7 +91,7 @@ const sleep = (milliseconds) => {
 }
 
 /**
- * @description srun the Turing Machine with a given interval
+ * @description run the Turing Machine with a given interval
  * @param {number} ms interval between each step
  */
 async function runWithPauses(ms) {

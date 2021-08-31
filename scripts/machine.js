@@ -1,3 +1,8 @@
+/**
+ * @description run the entire machine
+ * @param {string} entryWord entry word of TM
+ * @param {object} TuringMachine TM object defined
+ */
 export const runMachine = (entryWord, TuringMachine) => {
     let currentState = TuringMachine.initialState
     let currentTape = entryWord.split("")
@@ -45,6 +50,13 @@ export const runMachine = (entryWord, TuringMachine) => {
     entryWordDiv.innerHTML += `<p>${indefinition ? 'palavra válida' : 'palavra inválida'}</p>`
 }
 
+/**
+ * @description set a timeout
+ * @param {string} entryWord entry word of TM
+ * @param {object} TuringMachine TM object defined
+ * @param {object} currentInfo the current state of TM
+ * @returns {string, object, object, boolean} return stats updated
+ */
 export const runStep = (entryWord, TuringMachine, currentInfo) => {
     if(currentInfo.step === 0) {
         currentInfo.currentState = TuringMachine.initialState
